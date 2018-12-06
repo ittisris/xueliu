@@ -64,6 +64,11 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/libloragw/libloragw.a $(1)/usr/lib/
 endef
 
+define Package/libloragw/install
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/libloragw/libloragw.a $(1)/usr/lib/
+endef
+
 define Package/lora-gateway-tests/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/libloragw/test* $(1)/usr/sbin
